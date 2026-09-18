@@ -29,6 +29,19 @@ public class Pila {
         return elemento;
     }
 
+    /** Devuelve el elemento de la cima sin retirarlo. */
+    public Object top() {
+        if (cima == null) {
+            throw new EmptyStackException();
+        }
+        return cima.elemento;
+    }
+
+    /** Indica si la pila no contiene elementos. */
+    public boolean estaVacia() {
+        return cima == null;
+    }
+
     /**
      * Devuelve un iterador que recorre la pila desde la cima hasta la base.
      */

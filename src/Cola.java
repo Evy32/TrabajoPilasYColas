@@ -1,4 +1,5 @@
 import java.util.NoSuchElementException;
+import java.util.Iterator;
 
 /**
  * Cola de objetos implementada mediante nodos enlazados.
@@ -51,6 +52,36 @@ public class Cola {
     /** Indica si la cola no contiene elementos. */
     public boolean estaVacia() {
         return primero == null;
+    }
+
+    /** Devuelve el último elemento sin retirarlo. */
+    public Object ultimoElemento() {
+        if (estaVacia()) {
+            throw new NoSuchElementException("La cola está vacía");
+        }
+        return ultimo.elemento;
+    }
+
+    /** Recorre la cola desde el frente hasta el final. */
+    public Iterator<Object> iterador() {
+        return new Iterator<Object>() {
+            private Nodo actual = primero;
+
+            @Override
+            public boolean hasNext() {
+                return actual != null;
+            }
+
+            @Override
+            public Object next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+                Object elemento = actual.elemento;
+                actual = actual.siguiente;
+                return elemento;
+            }
+        };
     }
 
     /** Nodo interno de la lista enlazada usada por la cola. */

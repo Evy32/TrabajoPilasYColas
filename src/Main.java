@@ -3,6 +3,7 @@ public class Main {
     public static void main(String[] args) {
         ejecutarHanoi();
         ejecutarTrensitos();
+        ejecutarPruebasEjercicios();
     }
 
     private static void ejecutarHanoi() {
@@ -19,5 +20,10 @@ public class Main {
         } else {
             System.out.println("No fue posible acomodar los vagones.");
         }
+    }
+
+    private static void ejecutarPruebasEjercicios() {
+        System.out.println("\n=== Pruebas de ejercicios ===");
+        PruebasEjercicios.main(new String[0]);
     }
 }
